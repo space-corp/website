@@ -24,8 +24,10 @@ pipeline {
                 }
         } 
             steps {
+                timeout(time: 2, unit: 'MINUTES') {
                 input "Deploy to QA?"
                 echo 'Deploying to QA....'
+                }
             }
         }
       stage('Deploy to PROD') {
@@ -35,8 +37,10 @@ pipeline {
                 }
         } 
             steps {
+                timeout(time: 2, unit: 'MINUTES') {
                 input "Deploy to PROD?"
                 echo 'Deploying to PROD....'
+                }
             }
         }
     }
