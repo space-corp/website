@@ -29,9 +29,11 @@ pipeline {
             }
         }
       stage('Deploy to PROD') {
-          when {
-                branch 'main'
-             }
+         when {
+                expression {
+                return env.GIT_BRANCH == "origin/main"
+                }
+        } 
             steps {
                 input "Deploy to PROD?"
                 echo 'Deploying to PROD....'
