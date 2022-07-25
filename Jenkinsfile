@@ -14,7 +14,7 @@ pipeline {
         }
         stage('Deploy to DEV') {
             when {
-                 branch 'master'
+                 branch 'main'
              }
             steps {
                 echo 'Deploying to DEV....'
@@ -22,7 +22,7 @@ pipeline {
         }
       stage('Deploy to QA') {
           when {
-                 branch 'master'
+                 branch 'main'
              }
             steps {
                 input "Deploy to QA?"
@@ -31,7 +31,7 @@ pipeline {
         }
       stage('Deploy to PROD') {
           when {
-                 branch 'master'
+                 branch 'main'
              }
             steps {
                 input "Deploy to PROD?"
