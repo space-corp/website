@@ -19,7 +19,7 @@ pipeline {
         }
       stage('Deploy to QA') {
           when {
-                 branch 'main'
+                 branch 'origin/main'
              }
             steps {
                 input "Deploy to QA?"
@@ -28,7 +28,7 @@ pipeline {
         }
       stage('Deploy to PROD') {
           when {
-                 branch 'main'
+                 branch 'origin/main'
              }
             steps {
                 input "Deploy to PROD?"
