@@ -18,9 +18,11 @@ pipeline {
             }
         }
       stage('Deploy to QA') {
-          when {
-                branch 'main'
-             }
+            when {
+                expression {
+                return env.GIT_BRANCH == "origin/main"
+                }
+        } 
             steps {
                 //input "Deploy to QA?"
                 echo 'Deploying to QA....'
