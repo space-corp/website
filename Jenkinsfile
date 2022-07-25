@@ -29,14 +29,18 @@ pipeline {
                 }
         } 
             steps {
-                timeout(time: 2, unit: 'MINUTES') {
-                input "Deploy to QA?"
+                //timeout(time: 2, unit: 'MINUTES') {
+                //input "Deploy to QA?"
                 echo 'Deploying to QA....'
                 }
             }
              post {
                  success {
-                     jiraSendDeploymentInfo environmentId: 'us-west-1', environmentName: 'us-west-1', environmentType: 'testing'
+                     script{
+                         if (env.GIT_BRANCH == "origin/main"){
+                            jiraSendDeploymentInfo environmentId: 'us-west-1', environmentName: 'us-west-1', environmentType: 'testing'
+                         }
+                     }
                  }
              }
         }
@@ -47,8 +51,8 @@ pipeline {
                 }
         } 
             steps {
-                timeout(time: 2, unit: 'MINUTES') {
-                input "Deploy to PROD?"
+                //timeout(time: 2, unit: 'MINUTES') {
+                // "Deploy to PROD?"
                 echo 'Deploying to PROD....'
                 }
             }
