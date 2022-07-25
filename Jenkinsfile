@@ -19,16 +19,16 @@ pipeline {
         }
       stage('Deploy to QA') {
           when {
-                expression { BRANCH_NAME ==~ /main/ }
+                branch 'main'
              }
             steps {
-                input "Deploy to QA?"
+                //input "Deploy to QA?"
                 echo 'Deploying to QA....'
             }
         }
       stage('Deploy to PROD') {
           when {
-                 expression { BRANCH_NAME ==~ /main/ }
+                branch 'main'
              }
             steps {
                 input "Deploy to PROD?"
