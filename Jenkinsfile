@@ -16,6 +16,11 @@ pipeline {
             steps {
                 echo 'Deploying to DEV....'
             }
+            post {
+                 always {
+                     jiraSendDeploymentInfo environmentId: 'us-east-1', environmentName: 'us-east-1', environmentType: 'development'
+                 }
+             }
         }
       stage('Deploy to QA') {
             when {
@@ -29,6 +34,11 @@ pipeline {
                 echo 'Deploying to QA....'
                 }
             }
+          post {
+                 always {
+                     jiraSendDeploymentInfo environmentId: 'us-west-1', environmentName: 'us-west-1', environmentType: 'testing'
+                 }
+             }
         }
       stage('Deploy to PROD') {
          when {
@@ -42,6 +52,11 @@ pipeline {
                 echo 'Deploying to PROD....'
                 }
             }
+          post {
+                 always {
+                     jiraSendDeploymentInfo environmentId: 'us-central-1', environmentName: 'us-central-1', environmentType: 'production'
+                 }
+             }
         }
     }
 }
