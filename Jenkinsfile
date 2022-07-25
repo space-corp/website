@@ -14,17 +14,19 @@ pipeline {
         }
         stage('DEV Deploy') {
             steps {
-                echo 'Deploying....'
+                echo 'Deploying to DEV....'
             }
         }
       stage('QA Deploy') {
             steps {
-                echo 'Deploying....'
+                input "Deploy to QA?"
+                echo 'Deploying to QA....'
             }
         }
       stage('PROD Deploy') {
             steps {
-                echo 'Deploying....'
+                input "Deploy to PROD?"
+                echo 'Deploying to PROD....'
             }
         }
     }
