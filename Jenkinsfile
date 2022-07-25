@@ -8,7 +8,7 @@ pipeline {
             }
             post {
                  always {
-                     jiraSendBuildInfo() 
+                     jiraSendBuildInfo site: 'spacecorp.atlassian.net' 
                  }
              }
         }
@@ -22,7 +22,7 @@ pipeline {
                 echo 'Deploying to DEV....'
             }
             post {
-                 always {
+                 success {
                      jiraSendDeploymentInfo environmentId: 'us-east-1', environmentName: 'us-east-1', environmentType: 'development'
                  }
              }
