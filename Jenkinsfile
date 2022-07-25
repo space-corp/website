@@ -24,7 +24,7 @@ pipeline {
                 }
         } 
             steps {
-                //input "Deploy to QA?"
+                input "Deploy to QA?"
                 echo 'Deploying to QA....'
             }
         }
