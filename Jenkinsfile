@@ -12,18 +12,27 @@ pipeline {
                 echo 'Testing..'
             }
         }
-        stage('DEV Deploy') {
+        stage('Deploy to DEV') {
+            when {
+                 branch 'master'
+             }
             steps {
                 echo 'Deploying to DEV....'
             }
         }
-      stage('QA Deploy') {
+      stage('Deploy to QA') {
+          when {
+                 branch 'master'
+             }
             steps {
                 input "Deploy to QA?"
                 echo 'Deploying to QA....'
             }
         }
-      stage('PROD Deploy') {
+      stage('Deploy to PROD') {
+          when {
+                 branch 'master'
+             }
             steps {
                 input "Deploy to PROD?"
                 echo 'Deploying to PROD....'
