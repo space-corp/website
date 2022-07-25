@@ -19,7 +19,8 @@ pipeline {
         }
       stage('Deploy to QA') {
           when {
-                 branch 'origin/main'
+                 beforeInput true
+                 branch 'main'
              }
             steps {
                 input "Deploy to QA?"
@@ -28,7 +29,8 @@ pipeline {
         }
       stage('Deploy to PROD') {
           when {
-                 branch 'origin/main'
+                 beforeInput true
+                 branch 'main'
              }
             steps {
                 input "Deploy to PROD?"
