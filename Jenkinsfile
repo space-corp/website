@@ -13,9 +13,6 @@ pipeline {
             }
         }
         stage('Deploy to DEV') {
-            when {
-                 branch 'main'
-             }
             steps {
                 echo 'Deploying to DEV....'
             }
