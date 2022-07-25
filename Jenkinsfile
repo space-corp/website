@@ -6,6 +6,11 @@ pipeline {
             steps {
                 echo 'Building..'
             }
+            post {
+                 always {
+                     jiraSendBuildInfo() 
+                 }
+             }
         }
         stage('Test') {
             steps {
@@ -34,8 +39,8 @@ pipeline {
                 echo 'Deploying to QA....'
                 }
             }
-          post {
-                 always {
+             post {
+                 success {
                      jiraSendDeploymentInfo environmentId: 'us-west-1', environmentName: 'us-west-1', environmentType: 'testing'
                  }
              }
@@ -53,7 +58,7 @@ pipeline {
                 }
             }
           post {
-                 always {
+                 success {
                      jiraSendDeploymentInfo environmentId: 'us-central-1', environmentName: 'us-central-1', environmentType: 'production'
                  }
              }
