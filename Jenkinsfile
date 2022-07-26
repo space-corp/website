@@ -52,11 +52,11 @@ pipeline {
                 echo 'Deploying to PROD....'
                 }
             }
-          //post {
-          //       success {
-          //           jiraSendDeploymentInfo environmentId: 'us-central-1', environmentName: 'us-central-1', environmentType: 'production'
-          //       }
-          //   }
+          post {
+                 success {
+                     jiraSendDeploymentInfo environmentId: 'us-central-1', environmentName: 'us-central-1', environmentType: 'production'
+                 }
+             }
         }
     }
 }
