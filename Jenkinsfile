@@ -17,7 +17,7 @@ pipeline {
                 echo 'Deploying to DEV....'
             }
             post {
-                 always {
+                 success {
                      jiraSendDeploymentInfo environmentId: 'us-east-1', environmentName: 'us-east-1', environmentType: 'development'
                  }
              }
@@ -32,8 +32,10 @@ pipeline {
                 timeout(time: 2, unit: 'MINUTES') {
                 input "Deploy to QA?"
                 echo 'Deploying to QA....'
-                    post {
-                 always {
+ }
+            }
+             post {
+                 success {
                      jiraSendDeploymentInfo environmentId: 'us-west-1', environmentName: 'us-west-1', environmentType: 'testing'
                  }
              }
@@ -54,7 +56,7 @@ pipeline {
                 }
             }
           post {
-                 always {
+                 success {
                      jiraSendDeploymentInfo environmentId: 'us-central-1', environmentName: 'us-central-1', environmentType: 'production'
                  }
              }
