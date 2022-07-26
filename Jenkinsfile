@@ -36,11 +36,9 @@ pipeline {
             }
              post {
                  success {
-                     script{
-                         if (env.GIT_BRANCH == "origin/main"){
+                     
                             jiraSendDeploymentInfo environmentId: 'us-west-1', environmentName: 'us-west-1', environmentType: 'testing'
-                         }
-                     }
+                       
                  }
              }
         }
