@@ -34,11 +34,11 @@ pipeline {
                 echo 'Deploying to QA....'
                 }
             }
-             //post {
-             //    success {
-             //        jiraSendDeploymentInfo environmentId: 'us-west-1', environmentName: 'us-west-1', environmentType: 'testing'
-             //    }
-             //}
+             post {
+                 success {
+                     jiraSendDeploymentInfo environmentId: 'us-west-1', environmentName: 'us-west-1', environmentType: 'testing'
+                 }
+             }
         }
       stage('Deploy to PROD') {
          when {
