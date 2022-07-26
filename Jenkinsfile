@@ -32,16 +32,13 @@ pipeline {
                 timeout(time: 2, unit: 'MINUTES') {
                 input "Deploy to QA?"
                 echo 'Deploying to QA....'
- }
+                }
             }
              post {
                  success {
                      jiraSendDeploymentInfo environmentId: 'us-west-1', environmentName: 'us-west-1', environmentType: 'testing'
                  }
              }
-                }
-            }
-          
         }
       stage('Deploy to PROD') {
          when {
