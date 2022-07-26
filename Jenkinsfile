@@ -18,7 +18,7 @@ pipeline {
             }
             post {
                  success {
-                     jiraSendDeploymentInfo environmentId: 'us-east-1', environmentName: 'us-east-1', environmentType: 'development'
+                     jiraSendDeploymentInfo environmentId: 'DEV', environmentName: 'DEV', environmentType: 'development'
                  }
              }
         }
@@ -36,7 +36,7 @@ pipeline {
             }
              post {
                  success {
-                     jiraSendDeploymentInfo environmentId: 'us-west-1', environmentName: 'us-west-1', environmentType: 'testing'
+                     jiraSendDeploymentInfo environmentId: 'QA', environmentName: 'QA', environmentType: 'testing'
                  }
              }
         }
@@ -54,7 +54,7 @@ pipeline {
             }
           post {
                  success {
-                     jiraSendDeploymentInfo environmentId: 'us-central-1', environmentName: 'us-central-1', environmentType: 'production'
+                     jiraSendDeploymentInfo environmentId: 'PROD', environmentName: 'PROD', environmentType: 'production'
                  }
              }
         }
