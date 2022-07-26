@@ -29,18 +29,16 @@ pipeline {
                 }
         } 
             steps {
-                //timeout(time: 2, unit: 'MINUTES') {
-                //input "Deploy to QA?"
+                timeout(time: 2, unit: 'MINUTES') {
+                input "Deploy to QA?"
                 echo 'Deploying to QA....'
                 }
             }
-             post {
-                 success {
-                     
-                            jiraSendDeploymentInfo environmentId: 'us-west-1', environmentName: 'us-west-1', environmentType: 'testing'
-                       
-                 }
-             }
+             //post {
+             //    success {
+             //        jiraSendDeploymentInfo environmentId: 'us-west-1', environmentName: 'us-west-1', environmentType: 'testing'
+             //    }
+             //}
         }
       stage('Deploy to PROD') {
          when {
@@ -49,16 +47,16 @@ pipeline {
                 }
         } 
             steps {
-                //timeout(time: 2, unit: 'MINUTES') {
-                // "Deploy to PROD?"
+                timeout(time: 2, unit: 'MINUTES') {
+                input "Deploy to PROD?"
                 echo 'Deploying to PROD....'
                 }
             }
-          post {
-                 success {
-                     jiraSendDeploymentInfo environmentId: 'us-central-1', environmentName: 'us-central-1', environmentType: 'production'
-                 }
-             }
+          //post {
+          //       success {
+          //           jiraSendDeploymentInfo environmentId: 'us-central-1', environmentName: 'us-central-1', environmentType: 'production'
+          //       }
+          //   }
         }
     }
 }
