@@ -6,12 +6,7 @@ pipeline {
             steps {
                 echo 'Building..'
              }
-		post {
-                 always {
-                     jiraSendBuildInfo site: 'spacecorp.atlassian.net'
-                 }
-            }
-        }
+	 }
         stage('Test') {
             steps {
                 echo 'Testing..'
